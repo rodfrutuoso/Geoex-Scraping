@@ -53,6 +53,7 @@ To run the project, use the following command:
 
 ```bash
   python .\src\main.py
+  python.exe -m src.modules.scrappers.geoex_scrapper
 ```
 
 This will open the GUI application. You can then enter your credentials and start scraping data from the Geoex system. The scraped data will be exported to a Google Sheets document.
