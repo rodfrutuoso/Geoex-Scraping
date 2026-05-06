@@ -106,6 +106,7 @@ class GeoexScraper:
                                 safe_get(result, ['response_body', 'CarteirasObras', 0, 'Previsao']),
                                 safe_get(result, ['response_body', 'ResponsavelCarteiraProgramacaoUsuario','Nome']),
                                 date_today,
+                                safe_get(result, ['response_body', 'PostePriPrev']) + safe_get(result, ['response_body', 'PosteSecPrev']),
                             ])
             wait_time = 3 + random.uniform(-2, 2)
             time.sleep(wait_time)  # To avoid overwhelming the server with requests
@@ -276,12 +277,29 @@ if __name__ == "__main__":
     print(projects['PROJETOS PESQUISAR'].array)
     GeoexScraper().scrape_projects_infos(
         geoex_credentials={
-            "cookies": "access_token=CfDJ8DYAIeEKlntJtLGnblY3-fPyrBldz3XVrHgqNGfzwBM9bi6gFkT7gURYXoAPgUalVrsnEFloSfhjd69id_1YQhJr_8vRaeDBL2fdMeca_XUbTs10VX7vlgcWHPGejM7iheAb7YIdggQ8a869RbTa7LBMM6u7XBDiD80h6a1M8QSnyOglhhOuKMnPu-Y8Ntg-_l1YWUMUFGt_j8NmRHZE-mRLeCBO7aa4Dg2PXw_uCWp_5EF09-euXXaDomU2UKAgv0656eOvzsdqQiFWbobsvaLex3iuhIkRFV47dWq-TjY8Dv56a3hkIU0vGeMD5MPS43sH0RNdbmHftP5V4YjhXoMi4JIMURumD2Xpo3LWhGYZBSKtjAOJl2U69JyKFu91m2GZ_XYfH_ycfD8qRyXMdo27g1oz5VoHgP4Gh5TRP0OBVw0k9V4dAEigBtYsqq3AS1PxFf4idsw15-g5DkoTOMs; .AspNetCore.Session=CfDJ8DYAIeEKlntJtLGnblY3%2BfPoySfSorajyO%2B31knKER%2B6nEOrjYxZGbHLh091UOufCqEtJoF%2F5%2FwF6DIHorXcxmXCVj9OGyTZzQjR27WFnR%2FYTx14hmLBwVzuhe61KCVGjMOn72Voi84dNt9Lt4ZqC249zlP7F7miUM8PazqaHNWJ; TemaEscuro=true; FirmaId=1; Home.Buscar.Texto=; ConsultarProjeto.Numero=B-0957422; cf_clearance=EQO4CJjb4OQNG_V6pXeyJXO7YP_Km4nDCEBzxJq7wm0-1752576903-1.2.1.1-Kj7w95NTJPIu4NncRF_54LBMEBZsGuMVTdNnTO0kCHOg52Q00zJrXS1qCleflr6M6RfqhRI7nNdIN4qGzXcjMWKk9nq6EFl4RfsWB8ZkVEvEW.oXc4F0J.yH2m3K3aZ7SDW4Hpr8voKgYGuZzJ617XO1xis1hBdkDfEzcQyCmAQq4DHSTbpboTJ5uvc247l6ZiI.xsjUYLSDNxh8PqmM0wyTZMLkcNB.Bkq8FiNcXio",
-            "gxsessao": "NG8oJ2koREsiXSgmNCJEXW8nImBXJ0siLXwmS25uJyddJ11gH3xgaWkmfDR8IihLRFciLW5ERCJpJktXIktgJi00b3woJjR0NA==",
-            "gxbot": "NG8oJ2koREsiXSgmNCJEXW8nImBXJ0siLXwmS25uJyddJ11gHy10RUo0"
+            "cookies": "access_token=CfDJ8EerL3cRo_FKsXfpNBDca0V-hB7HWWzcaI0tAYeiG8lYHo5LTZPynCWZILukKJvLNSns9FFRI0lf04v8kRlB_wY_zkP2YSvQYZATSUCf7AnOM-9BUuo66xsD-AJBGc3UP1NYOJypmFFZ0xpzrifqdEi14eq6xwBDtcj7mRj4tpqcrurNC0CTOQDrCq4b9NMDwvYqRQSbdTds9kaMxPqYpuo2B1WaS9CVQtqdzysMrN9dVngYxb_GObCiIISgha3sS0kFCUodn6xfOj_ijmIs46obTVvLf322A4Ogb5yqHNty9OF-RBv1Qae5VloFLDFOwauInPNTodK8T77Ev-QkIVqQm4qrTKEXaYB9KFuk65V04Ye5zyRVLcFOm0vcVDesi0EQ3nlFYPCkLxiqgQd2eNTCEqPl1wDaaQLAH6UAzIKxYvAauoFTsWcNLQvWMq8IK1Iqp-7UNVBmbUqKDlGlg1Y; .AspNetCore.Session=CfDJ8EerL3cRo%2FFKsXfpNBDca0WgJlMVgkpjvhYFkss7GqLQFoXmZE7Bq7f7J0%2Bws8%2BJxSuBhS7YkCAs4euXZLB9zuxsdEhHMF09KkFljWmOQ8dlorcd3iwygxx0IF8vAz6BrijQEo8l%2FJ5trGz5T9SZnxdB55aTBS6AtXHrKFBMkVPR",
+            "gxsessao": "XW5gSzdpdDciSzdgJyIoJmBLIktvKHQiV3xLXSg3V1d8fEt8HzdpN283bm9LIi18N0siRG9EbiJpN29LIm5uS29XJl00KDQmJw==",
+            "gxbot": "XW5gSzdpdDciSzdgJyIoJmBLIktvKHQiV3xLXSg3V1d8fEt8Hy10RUo0"
         },
         projects_to_consult=projects['PROJETOS PESQUISAR'].array,
         google_sheet_id="1AMjoJGQmEhpAz5_-XqilCUe4P3-SArAMHtC8nCPR094",
         google_sheet_range="DADOS!A:ZZ",
         progress_callback=print,
-    )
+    ) # executar comando python.exe -m src.modules.scrappers.geoex_scrapper
+    # projects = SheetsPython().get_data_from_sheets(
+    #     id_sheets="1Hx4nyAgSNSjl8QRvAnW5pCNBS3cC-5Id3e96XX4e_Bs",
+    #     range_sheets="Página25!A1:A",
+    #     with_headers=True
+    # )
+    # print(projects['PROJETOS PESQUISAR'].array)
+    # GeoexScraper().scrape_projects_budgets(
+    #     geoex_credentials={
+    #         "cookies": "access_token=CfDJ8DYAIeEKlntJtLGnblY3-fOZ-sBGz2uDV9CW1GEBaYlqWen9TjBzGh3EGh2i0OX5aBKceWgqy4U2uvRVC0d7L2zxzkP-eMF0WB_muAKtnxVA6LHQ2yoDammIcK51PcjWL4F1VoFGICEdjqbMvAopTGc9fUlleixt6vqAen2aI902OVJBeWH04hGgFfw8ZWJZpUKiKVtH8MpE0ay0Lx-y3o5OEFNkeHtpyiM1XhN1F0uZrdxFmdGmRqw4YtBfJiTkwp5T5AOMWSDLmJDSkNh5kqtRwx4T4uA-DL4ZnneFeyNHt0e4PRh6E5IHfjUd_8fygKl9bNckx7jXPq2CYC3tVbRGso72ar76wER22aEDNSnbipFBhJNrzv_k14y4SCChJSb37mjOdfy2ySP4LauvjRl61muEyg77-12Lo-Sl1PMCXusOxN7JD9gw4goQAhCvCaSzKwYZ_JMqmp_Ak6auRro; .AspNetCore.Session=CfDJ8DYAIeEKlntJtLGnblY3%2BfPoySfSorajyO%2B31knKER%2B6nEOrjYxZGbHLh091UOufCqEtJoF%2F5%2FwF6DIHorXcxmXCVj9OGyTZzQjR27WFnR%2FYTx14hmLBwVzuhe61KCVGjMOn72Voi84dNt9Lt4ZqC249zlP7F7miUM8PazqaHNWJ; TemaEscuro=true; FirmaId=1; Home.Buscar.Texto=; ConsultarProjeto.Numero=B-1208863; cf_clearance=X0tcKwrowPKwSC5voowMn.MlI10l0nOGsYrT6pYh7Tk-1752843981-1.2.1.1-0NCSx8mTudiQxJPRvf.w.UCtvz_DdebcINxl1yi7kkyIAcSe0XqWcAaMHXpNoxE3i1uQKrUb_NTwpFwJ52z4O4tLtPweRNtDSIbebqxBuxRrR7qgiuF2vp5vw2FOvU2QjDAb0zt7q2mNTGZGvMxdHgL7zMEpcY2kneqWgL68721GPMyeM.LBamq2hfrLK23STSjSuQgIaE3xm9knxsP3wvI.O6TyfoynlqNFNnISw7c",
+    #         "gxsessao": "NG8oJ2koREsiXSgmNCJEXW8nImBXJ0siLXwmS25uJyddJ11gHzdpN283bm9LIi18N0siRG9EbiJpN29LIm5uS29XJl00KDQmJw==",
+    #         "gxbot": "NG8oJ2koREsiXSgmNCJEXW8nImBXJ0siLXwmS25uJyddJ11gHy10RUo0"
+    #     },
+    #     projects_to_consult=projects['PROJETOS PESQUISAR'].array,
+    #     google_sheet_id="1AMjoJGQmEhpAz5_-XqilCUe4P3-SArAMHtC8nCPR094",
+    #     google_sheet_range="ORC_GEOEX!A:ZZ",
+    #     progress_callback=print,
+    # )

@@ -28,7 +28,7 @@ def consult_project_rejection_details_in_geoex(
     scraper = cloudscraper.create_scraper()
 
     response = scraper.post(
-        'https://geoex.com.br/api/ConsultarProjeto/EnvioPasta/Item',
+        'https://neoex.net.br/api/ConsultarProjeto/EnvioPasta/Item',
         json={"ProjetoEnvioPastaId": rejection_id},
         headers={
             "cookie": cookies,

@@ -28,7 +28,7 @@ def consult_project_in_geoex(
     scraper = cloudscraper.create_scraper()
 
     response = scraper.post(
-        'https://geoex.com.br/api/Programacao/ConsultarProjeto/Item',
+        'https://neoex.net.br/api/Programacao/ConsultarProjeto/Item',
         json={"id": project_numbers},
         headers={
             "cookie": cookies,

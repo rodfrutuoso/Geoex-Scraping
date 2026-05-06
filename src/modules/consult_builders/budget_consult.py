@@ -28,7 +28,7 @@ def consult_budget_in_geoex(
     scraper = cloudscraper.create_scraper()
 
     response = scraper.post(
-        'https://geoex.com.br/api/ConsultarProjeto/RevisaoOrcamento',
+        'https://neoex.net.br/api/ConsultarProjeto/RevisaoOrcamento',
         json={"ProjetoId": project_id},
         headers={
             "cookie": cookies,

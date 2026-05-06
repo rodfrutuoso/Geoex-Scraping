@@ -28,7 +28,7 @@ def consult_folder_status_in_geoex(
     scraper = cloudscraper.create_scraper()
 
     response = scraper.post(
-        'https://geoex.com.br/api/ConsultarProjeto/EnvioPasta/Itens',
+        'https://neoex.net.br/api/ConsultarProjeto/EnvioPasta/Itens',
         json={"ProjetoId": project_id},
         headers={
             "cookie": cookies,
